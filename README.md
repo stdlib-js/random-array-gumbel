@@ -35,41 +35,33 @@ limitations under the License.
 
 > Create an array containing pseudorandom numbers drawn from a [Gumbel][@stdlib/random/base/gumbel] distribution.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/random-array-gumbel
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-gumbel = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-gumbel@umd/browser.js' )
+var gumbel = require( '@stdlib/random-array-gumbel' );
 ```
 
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var gumbel = require( 'path/to/vendor/umd/random-array-gumbel/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-gumbel@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.gumbel;
-})();
-</script>
-```
-
-#### gumbel( len, mean, beta\[, options] )
+#### gumbel( len, mu, beta\[, options] )
 
 Returns an array containing pseudorandom numbers drawn from a [Gumbel][@stdlib/random/base/gumbel] distribution.
 
@@ -81,7 +73,7 @@ var out = gumbel( 10, 2.0, 5.0 );
 The function has the following parameters:
 
 -   **len**: output array length.
--   **mean**: mean.
+-   **mu**: mean.
 -   **beta**: scale parameter.
 -   **options**: function options.
 
@@ -100,7 +92,7 @@ var out = gumbel( 10, 2.0, 5.0, opts );
 // returns [...]
 ```
 
-#### gumbel.assign( mean, beta, out )
+#### gumbel.assign( mu, beta, out )
 
 Fills an array with pseudorandom numbers drawn from a [Gumbel][@stdlib/random/base/gumbel] distribution.
 
@@ -119,11 +111,11 @@ var bool = ( out === x );
 
 The function has the following parameters:
 
--   **mean**: mean.
+-   **mu**: mean.
 -   **beta**: scale parameter.
 -   **out**: output array.
 
-#### gumbel.factory( \[mean, beta, ]\[options] )
+#### gumbel.factory( \[mu, beta, ]\[options] )
 
 Returns a function for creating arrays containing pseudorandom numbers drawn from a [Gumbel][@stdlib/random/base/gumbel] distribution.
 
@@ -354,14 +346,9 @@ var sz = random.byteLength;
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-gumbel@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var logEach = require( '@stdlib/console-log-each' );
+var gumbel = require( '@stdlib/random-array-gumbel' );
 
 // Create a function for generating random arrays originating from the same state:
 var random = gumbel.factory( 2.0, 5.0, {
@@ -388,11 +375,6 @@ var x4 = random( 15 );
 
 // Print the contents:
 logEach( '%f', x4 );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -476,13 +458,13 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/random-array-gumbel/main/LICENSE
 
-[@stdlib/random/base/gumbel]: https://github.com/stdlib-js/random-base-gumbel/tree/umd
+[@stdlib/random/base/gumbel]: https://github.com/stdlib-js/random-base-gumbel
 
-[@stdlib/array/typed-real-float-dtypes]: https://github.com/stdlib-js/array-typed-real-float-dtypes/tree/umd
+[@stdlib/array/typed-real-float-dtypes]: https://github.com/stdlib-js/array-typed-real-float-dtypes
 
-[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32/tree/umd
+[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
 
-[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64/tree/umd
+[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
 
 </section>
 
